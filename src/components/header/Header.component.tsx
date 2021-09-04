@@ -1,12 +1,18 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AiOutlineHeart } from "react-icons/ai";
+import { routes } from "src/utils/routes/routes";
 
 const Header = () => {
   return (
-    <div className="flex justify-between items-center mt-4">
+    <div className="flex justify-between items-center">
       <div className="w-full flex items-center justify-center flex-col xs:flex-row xs:justify-start">
-        <Image src="/spacex-logo.png" width={271} height={97} />
+        <Link href={routes.home}>
+          <button className="cursor-pointer">
+            <Image src="/spacex-logo.png" width={271} height={97} />
+          </button>
+        </Link>
 
         <input
           type="text"

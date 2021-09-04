@@ -1,17 +1,23 @@
-import { NextPage } from "next";
 import React from "react";
+import { NextPage } from "next";
+import Link from "next/link";
+
 import { Launch } from "src/utils/graphql/graphql.types";
+import { routes } from "src/utils/routes/routes";
 
 interface IProps {
   launch: Launch;
 }
 
 const LaunchItem: NextPage<IProps> = ({ launch }) => {
+  const { id, details, mission_name, launch_date_utc } = launch;
+
   return (
-    <div>
-      <h1>{launch.id}</h1>
-      <p>{launch.mission_name}</p>
-    </div>
+    <Link href={`${routes.launches}/${id}`}>
+      <div>
+        <h1>{id}</h1>
+      </div>
+    </Link>
   );
 };
 
