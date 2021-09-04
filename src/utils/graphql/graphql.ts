@@ -8,13 +8,18 @@ export const initializeClient = () =>
 
 export const getLaunchesQuery = gql`
   query Launches {
-    launches(limit: 40) {
+    launches(limit: 14) {
       id
       details
       launch_date_unix
       mission_name
       links {
         flickr_images
+      }
+      ships {
+        id
+        image
+        name
       }
     }
   }

@@ -10,6 +10,12 @@ let store: any = set => ({
   wishList: [],
 
   //METHODS
+
+  addShips: (ships: Ship[]) =>
+    set(() => ({
+      ships: ships,
+    })),
+
   addShip: (ship: Ship) =>
     set((state: RootState) => {
       const isAlready = state.wishList.find(({ name }) => name === ship.name);

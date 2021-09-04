@@ -4,6 +4,7 @@ import LaunchItem from "src/components/launchItem/LaunchItem.component";
 import Pagination from "src/components/pagination/Pagination.component";
 import { getLaunchesQuery, initializeClient } from "src/utils/graphql/graphql";
 import { Launch } from "src/utils/graphql/graphql.types";
+import { useStore } from "src/utils/store/store";
 import { LAUNCHES_PER_PAGE } from "src/utils/variables/variables";
 
 interface IProps {
@@ -11,6 +12,14 @@ interface IProps {
 }
 
 const Launches: NextPage<IProps> = ({ launches }) => {
+  const { addShips } = useStore(state => state);
+
+  useEffect(() => {
+    const ships = launches.map(launch => launch.ships).flat();
+
+    addShips(ships);
+  }, []);
+
   const [page, setPage] = useState<number>(0);
 
   useEffect(() => {

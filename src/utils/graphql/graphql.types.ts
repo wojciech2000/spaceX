@@ -1,3 +1,11 @@
+
+
+export interface Ship {
+  id: string;
+  image: string;
+  name: string;
+}
+
 export interface Launch {
   id: string;
   details: string;
@@ -6,14 +14,5 @@ export interface Launch {
   links: {
     flickr_images: string[];
   };
-}
-
-export interface Ship {
-  id: string;
-  image: string;
-  name: string;
-}
-
-export interface LaunchDetails extends Launch {
   ships: Ship[];
 }

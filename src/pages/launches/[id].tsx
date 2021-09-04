@@ -4,13 +4,13 @@ import Link from "next/link";
 import { BiArrowBack } from "react-icons/bi";
 
 import { getLaunchesQuery, getLaunchQuery, initializeClient } from "src/utils/graphql/graphql";
-import { Launch as LaunchType, LaunchDetails } from "src/utils/graphql/graphql.types";
+import { Launch as LaunchType } from "src/utils/graphql/graphql.types";
 import { convertUnixToLacalDate } from "src/utils/helpers/convertUnixToLacalDate.helper";
 import { routes } from "src/utils/routes/routes";
 import ShipItem from "src/components/shipItem/ShipItem.component";
 
 interface IProps {
-  launch: LaunchDetails;
+  launch: LaunchType;
 }
 
 const Launch: NextPage<IProps> = ({ launch }) => {
@@ -96,7 +96,7 @@ export const getStaticProps = async (context: any) => {
     variables: { id },
   });
 
-  const launch: LaunchDetails = result.data.launch;
+  const launch: LaunchType = result.data.launch;
 
   return {
     props: {
