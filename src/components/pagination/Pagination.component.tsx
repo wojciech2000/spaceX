@@ -22,7 +22,7 @@ const Pagination: NextPage<IProps> = ({ current, onChange, launchesLength }) => 
   };
 
   return (
-    <div className="flex justify-center items-center w-full fixed bottom-0 py-4">
+    <div className="flex justify-center items-center w-full fixed bottom-0 pb-4 md:py-8">
       <PaginationBullet
         content={<GrFormPrevious className="text-xl" />}
         type="primary"

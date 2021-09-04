@@ -7,3 +7,11 @@ export interface Launch {
     flickr_images: string[];
   };
 }
+
+export interface LaunchDetails extends Launch {
+  ships: {
+    id: string;
+    image: string;
+    name: string;
+  };
+}
