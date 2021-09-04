@@ -1,19 +1,66 @@
 import { NextPage } from "next";
-import { useRouter } from "next/dist/client/router";
 import React from "react";
+import Link from "next/link";
+import { BiArrowBack } from "react-icons/bi";
+
 import { getLaunchesQuery, getLaunchQuery, initializeClient } from "src/utils/graphql/graphql";
 import { Launch as LaunchType, LaunchDetails } from "src/utils/graphql/graphql.types";
+import { convertUnixToLacalDate } from "src/utils/helpers/convertUnixToLacalDate.helper";
+import { routes } from "src/utils/routes/routes";
+import ShipItem from "src/components/shipItem/ShipItem.component";
 
 interface IProps {
   launch: LaunchDetails;
 }
 
 const Launch: NextPage<IProps> = ({ launch }) => {
-  console.log(launch);
+  const {
+    details,
+    launch_date_unix,
+    mission_name,
+    ships,
+    links: { flickr_images },
+  } = launch;
 
   return (
-    <div>
-      <h1>launch {launch.mission_name}</h1>
+    <div className="md:mx-32">
+      <div className="w-full flex justify-end text-white mb-4">
+        <Link href={routes.launches}>
+          <button className="flex items-end justify-center">
+            <BiArrowBack className="text-2xl" />
+            <span className="text-xl ml-2">Back</span>
+          </button>
+        </Link>
+      </div>
+
+      <div className="flex flex-col md:flex-row">
+        <img
+          src={flickr_images[0]}
+          alt={mission_name}
+          className="h-96 mx-auto border-primary border-2 object-cover rounded-2xl md:h-full md:w-1/2"
+        />
+
+        <div className="ml-8 md:w-1/2">
+          <span className="block text-gray-400 text-sm mt-2 md:mt-4">
+            {convertUnixToLacalDate(launch_date_unix)}
+          </span>
+          <h2 className="mt-4 text-primary">{mission_name}</h2>
+          <p className="text-base text-white">{details}</p>
+
+          <div className="mt-8">
+            {ships.length > 0 ? (
+              <>
+                <h1 className="text-3xl text-white mb-2">SHIPS:</h1>
+                {ships.map(ship => (
+                  <ShipItem key={ship.id} ship={ship} />
+                ))}
+              </>
+            ) : (
+              <span className="text-white">Ships not found...</span>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

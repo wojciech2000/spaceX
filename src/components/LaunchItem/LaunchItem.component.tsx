@@ -21,11 +21,11 @@ const LaunchItem: NextPage<IProps> = ({ launch }) => {
   } = launch;
 
   return (
-    <div className="custom-gradient rounded-lg w-full mb-10 p-4 sm:w-80 lg:w-96 ">
+    <div className="custom-gradient rounded-2xl w-full mb-10 p-4 sm:w-80 lg:w-96 ">
       <img
         src={flickr_images[0]}
         alt={mission_name}
-        className="object-contain h-48 rounded-lg border border-primary w-auto mx-auto"
+        className="object-contain h-48 border-2 rounded-2xl border-primary w-auto mx-auto"
       />
       <span className="block text-gray-400 text-sm mt-2 md:mt-4">
         {convertUnixToLacalDate(launch_date_unix)}

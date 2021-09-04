@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import React, { useCallback, useEffect, useState } from "react";
-import LaunchItem from "src/components/LaunchItem/LaunchItem.component";
+import LaunchItem from "src/components/launchItem/LaunchItem.component";
 import Pagination from "src/components/pagination/Pagination.component";
 import { getLaunchesQuery, initializeClient } from "src/utils/graphql/graphql";
 import { Launch } from "src/utils/graphql/graphql.types";

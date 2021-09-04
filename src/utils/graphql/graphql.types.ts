@@ -8,10 +8,12 @@ export interface Launch {
   };
 }
 
+export interface Ship {
+  id: string;
+  image: string;
+  name: string;
+}
+
 export interface LaunchDetails extends Launch {
-  ships: {
-    id: string;
-    image: string;
-    name: string;
-  };
+  ships: Ship[];
 }
