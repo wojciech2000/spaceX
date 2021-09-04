@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NextPage } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 import { Launch } from "src/utils/graphql/graphql.types";
 import { routes } from "src/utils/routes/routes";
 import { convertUnixToLacalDate } from "src/utils/helpers/convertUnixToLacalDate.helper";
+import Button from "src/components/button/Button.component";
 
 interface IProps {
   launch: Launch;
@@ -34,9 +34,9 @@ const LaunchItem: NextPage<IProps> = ({ launch }) => {
       <p className="text-base text-white">{details}</p>
 
       <Link href={`${routes.launches}/${id}`}>
-        <button className="border border-primary w-40 block mt-4 text-xl py-2 rounded-full text-primary mx-auto transition-all hover:bg-primary hover:text-black">
-          Read more
-        </button>
+        <div>
+          <Button>Read more</Button>
+        </div>
       </Link>
     </div>
   );

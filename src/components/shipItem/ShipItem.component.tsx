@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import React from "react";
 import { Ship } from "src/utils/graphql/graphql.types";
+import Button from "src/components/button/Button.component";
 
 interface IProps {
   ship: Ship;
@@ -14,16 +15,13 @@ const ShipItem: NextPage<IProps> = ({ ship }) => {
   };
 
   return (
-    <div className="mb-4">
+    <div className="mb- mb-12">
       <h2 className="text-white mb-2">{name}</h2>
       <img src={image} alt={name} />
 
-      <button
-        onClick={handleOnClick}
-        className="border border-primary w-full block mt-4 text-xl py-2 rounded-full text-primary mx-auto transition-all hover:bg-primary hover:text-black"
-      >
+      <Button onClick={handleOnClick} className="w-full">
         Add to the wishlist
-      </button>
+      </Button>
     </div>
   );
 };

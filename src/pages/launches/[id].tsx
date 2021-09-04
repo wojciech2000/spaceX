@@ -37,7 +37,7 @@ const Launch: NextPage<IProps> = ({ launch }) => {
         <img
           src={flickr_images[0]}
           alt={mission_name}
-          className="h-96 mx-auto border-primary border-2 object-cover rounded-2xl md:h-full md:w-1/2"
+          className="max-h-96 mx-auto border-primary border-2 object-cover rounded-2xl md:h-full md:w-1/2"
         />
 
         <div className="ml-8 md:w-1/2">
