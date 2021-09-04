@@ -20,17 +20,15 @@ let store: any = set => ({
     set((state: RootState) => {
       const isAlready = state.wishList.find(({ name }) => name === ship.name);
 
-      console.log("asdqwe");
-
       if (isAlready) {
-        toast.warning("This product is already in the cart");
+        toast.warning("This ship is already in wish list");
 
         return {
           wishList: state.wishList,
         };
       }
 
-      toast.success("Product has been added");
+      toast.success("Ship has been added");
 
       return {
         wishList: [...state.wishList, ship],
@@ -41,7 +39,7 @@ let store: any = set => ({
     set((state: RootState) => {
       const updatedWishList = state.wishList.filter(ship => ship.id !== shipId && ship);
 
-      toast.success("Product has been deleted");
+      toast.success("Ship has been deleted");
 
       console.log(updatedWishList, shipId);
 

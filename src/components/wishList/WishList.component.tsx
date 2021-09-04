@@ -22,7 +22,7 @@ const WishList = () => {
     <>
       <div
         className={clsx(
-          "fixed w-screen h-screen right-0 top-0 z-20 transition-transform transform bg-primary py-4 px-6 md:w-96",
+          "fixed w-screen h-screen right-0 top-0 z-30 transition-transform transform bg-primary py-4 px-6 md:w-96",
           isOpen ? "translate-x-0" : "translate-x-full",
         )}
       >

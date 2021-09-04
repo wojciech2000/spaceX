@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { routes } from "src/utils/routes/routes";
 import WishList from "../wishList/WishList.component";
+import SearchShip from "../searchShip/SearchShip.component";
 
 const Header = () => {
   return (
@@ -15,10 +16,7 @@ const Header = () => {
           </button>
         </Link>
 
-        <input
-          type="text"
-          className="pl-4 py-2 rounded-full max-w-xl bg-white w-full mt-4 xs:mt-0 xs:ml-16 xs:py-4 xs:pl-8"
-        />
+        <SearchShip />
       </div>
 
       <WishList />
