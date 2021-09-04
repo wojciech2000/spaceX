@@ -8,7 +8,7 @@ export const initializeClient = () =>
 
 export const getLaunchesQuery = gql`
   query Launches {
-    launches(limit: 14) {
+    launches(limit: 10, offset: 9) {
       id
       details
       launch_date_unix

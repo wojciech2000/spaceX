@@ -4,7 +4,7 @@ import { RootState } from "src/utils/store/store.types";
 import { Ship } from "../graphql/graphql.types";
 import { toast } from "react-toastify";
 
-let store: any = set => ({
+let store: any = (set: any) => ({
   //ATTRIBUTES
   ships: [],
   wishList: [],

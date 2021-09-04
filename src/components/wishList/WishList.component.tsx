@@ -52,7 +52,7 @@ const WishList = () => {
       <button
         onClick={toggleOpen}
         className={clsx(
-          "fixed z-30 flex items-center justify-center right-8 w-12 h-12 text-2xl bottom-24 rounded-full md:static md:ml-14 md:w-12 md:h-12",
+          "fixed z-30 flex items-center justify-center right-8 w-12 h-12 text-2xl bottom-24 rounded-full md:top-8 md:ml-14 md:w-12 md:h-12",
           isOpen ? "bg-white" : "bg-primary",
         )}
       >

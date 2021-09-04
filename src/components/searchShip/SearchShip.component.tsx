@@ -24,17 +24,17 @@ const SearchShip = () => {
 
   return (
     <div className="w-full">
-      <div className="max-w-xl relative mt-4 xs:ml-16 xs:mt-0">
+      <div className="max-w-xl relative mt-4 md:ml-16 md:mt-0 md:mr-24">
         <label
           htmlFor="search"
-          className="absolute bg-purple-800 text-white h-5/6 right-2 transform -translate-y-1/2 top-1/2 flex justify-center items-center w-8 rounded-full xs:w-12 cursor-pointer"
+          className="absolute bg-purple-800 text-white h-5/6 right-2 transform -translate-y-1/2 top-1/2 flex justify-center items-center w-8 rounded-full md:w-12 cursor-pointer"
         >
           <BsSearch />
         </label>
         <input
           id="search"
           type="text"
-          className="pl-4 pr-12 py-2 rounded-full w-full bg-white xs:py-4 xs:pl-8 md:pr-20"
+          className="pl-4 pr-12 py-2 rounded-full w-full bg-white md:py-4 md:pl-8 md:pr-20"
           placeholder="Search for ship"
           onChange={handleChangeValue}
         />
