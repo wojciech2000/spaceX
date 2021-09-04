@@ -12,8 +12,11 @@ export const getLaunchesQuery = gql`
     launches(limit: 40) {
       id
       details
-      launch_date_utc
+      launch_date_unix
       mission_name
+      links {
+        flickr_images
+      }
     }
   }
 `;

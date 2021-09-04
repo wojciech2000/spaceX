@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import LaunchItem from "src/components/LaunchItem/LaunchItem.component";
 import Pagination from "src/components/pagination/Pagination.component";
 import { getLaunchesQuery, initializeClient } from "src/utils/graphql/graphql";
@@ -13,6 +13,10 @@ interface IProps {
 const Launches: NextPage<IProps> = ({ launches }) => {
   const [page, setPage] = useState<number>(0);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [page]);
+
   const displayLaunches = useCallback((): Launch[] => {
     const from = LAUNCHES_PER_PAGE * page;
     const to = LAUNCHES_PER_PAGE * (page + 1);
@@ -22,7 +26,7 @@ const Launches: NextPage<IProps> = ({ launches }) => {
   }, [page]);
 
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex mb-16 flex-col justify-center items-center flex-wrap gap-2 sm:flex-row md:gap-12 sm:items-start">
       {displayLaunches().map(launch => (
         <LaunchItem key={launch.id} launch={launch} />
       ))}

@@ -18,7 +18,6 @@ const Pagination: NextPage<IProps> = ({ current, onChange, launchesLength }) => 
   };
 
   const nextPage = () => {
-    console.log(current);
     onChange(current => current + 1);
   };
 
