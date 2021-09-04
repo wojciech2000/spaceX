@@ -1,9 +1,10 @@
 import "src/styles/globals.css";
 import "src/styles/tailwind.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import type { AppProps } from "next/app";
 import Image from "next/image";
-// import Header from "src/components/header/Header.component";
 import Header from "src/components/header/Header.component";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -24,6 +25,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <div className="mt-8 sm:mt-16 lg:mt-24 flex-1">
         <Component {...pageProps} />
       </div>
+
+      <ToastContainer draggable={false} />
     </div>
   );
 }

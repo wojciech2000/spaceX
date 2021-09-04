@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AiOutlineHeart } from "react-icons/ai";
+
 import { routes } from "src/utils/routes/routes";
+import WishList from "../wishList/WishList.component";
 
 const Header = () => {
   return (
@@ -20,9 +21,7 @@ const Header = () => {
         />
       </div>
 
-      <button className="fixed flex items-center justify-center bg-primary right-8 w-12 h-12 bottom-8 p-2 rounded-full md:static md:ml-14 md:w-14 md:h-14 md:p-4">
-        <AiOutlineHeart className="text-2xl" />
-      </button>
+      <WishList />
     </div>
   );
 };

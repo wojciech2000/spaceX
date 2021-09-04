@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import React from "react";
 import { Ship } from "src/utils/graphql/graphql.types";
 import Button from "src/components/button/Button.component";
+import { useStore } from "src/utils/store/store";
 
 interface IProps {
   ship: Ship;
@@ -10,8 +11,10 @@ interface IProps {
 const ShipItem: NextPage<IProps> = ({ ship }) => {
   const { image, name } = ship;
 
+  const { addShip } = useStore(state => state);
+
   const handleOnClick = () => {
-    console.log("add");
+    addShip(ship);
   };
 
   return (
