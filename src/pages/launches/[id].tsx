@@ -25,7 +25,7 @@ const Launch: NextPage<IProps> = ({ launch }) => {
   return (
     <div className="md:mx-32">
       <div className="w-full flex justify-end text-white mb-4">
-        <Link href={routes.launches}>
+        <Link href={routes.home}>
           <button className="flex items-end justify-center">
             <BiArrowBack className="text-2xl" />
             <span className="text-xl ml-2">Back</span>

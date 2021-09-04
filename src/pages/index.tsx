@@ -1,21 +1,64 @@
-import React from "react";
-import Link from "next/link";
+import { NextPage } from "next";
+import React, { useCallback, useEffect, useState } from "react";
+import LaunchItem from "src/components/launchItem/LaunchItem.component";
+import Pagination from "src/components/pagination/Pagination.component";
+import { getLaunchesQuery, initializeClient } from "src/utils/graphql/graphql";
+import { Launch } from "src/utils/graphql/graphql.types";
+import { useStore } from "src/utils/store/store";
+import { LAUNCHES_PER_PAGE } from "src/utils/variables/variables";
 
-import Button from "src/components/button/Button.component";
-import { routes } from "src/utils/routes/routes";
+interface IProps {
+  launches: Launch[];
+}
 
-const Home = () => {
+const Launches: NextPage<IProps> = ({ launches }) => {
+  const { addShips } = useStore(state => state);
+
+  useEffect(() => {
+    const ships = launches.map(launch => launch.ships).flat();
+
+    addShips(ships);
+  }, []);
+
+  const [page, setPage] = useState<number>(0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [page]);
+
+  const displayLaunches = useCallback((): Launch[] => {
+    const from = LAUNCHES_PER_PAGE * page;
+    const to = LAUNCHES_PER_PAGE * (page + 1);
+
+    const slicedLaunches = launches.slice(from, to);
+    return slicedLaunches;
+  }, [page]);
+
   return (
-    <div className="mt-8">
-      <h1 className="text-center text-5xl text-white mb-12">PER ASPERA AD ASTRA</h1>
+    <div className="flex mb-16 flex-col justify-center items-center flex-wrap gap-2 sm:flex-row md:gap-12 sm:items-start">
+      {displayLaunches().map(launch => (
+        <LaunchItem key={launch.id} launch={launch} />
+      ))}
 
-      <Link href="launches">
-        <div>
-          <Button>Check out launches</Button>
-        </div>
-      </Link>
+      <Pagination current={page + 1} onChange={setPage} launchesLength={launches.length} />
     </div>
   );
 };
 
-export default Home;
+export const getStaticProps = async () => {
+  const client = initializeClient();
+
+  const result = await client.query({
+    query: getLaunchesQuery,
+  });
+
+  const launches: Launch[] = result.data.launches;
+
+  return {
+    props: {
+      launches,
+    },
+  };
+};
+
+export default Launches;
