@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import React from "react";
 import clsx from "clsx";
 import { BulletTypes } from "./PaginationBullet.types";
@@ -11,7 +10,7 @@ interface IProps {
   disabled?: boolean;
 }
 
-const PaginationBullet: NextPage<IProps> = ({
+const PaginationBullet: React.FC<IProps> = ({
   content,
   onClick,
   className,

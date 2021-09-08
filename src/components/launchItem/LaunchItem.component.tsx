@@ -1,5 +1,4 @@
 import React from "react";
-import { NextPage } from "next";
 import Link from "next/link";
 
 import { Launch } from "src/utils/graphql/graphql.types";
@@ -11,7 +10,7 @@ interface IProps {
   launch: Launch;
 }
 
-const LaunchItem: NextPage<IProps> = ({ launch }) => {
+const LaunchItem: React.FC<IProps> = ({ launch }) => {
   const {
     id,
     details,

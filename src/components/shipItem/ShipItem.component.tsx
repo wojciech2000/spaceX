@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import React from "react";
 import { Ship } from "src/utils/graphql/graphql.types";
 import Button from "src/components/button/Button.component";
@@ -8,7 +7,7 @@ interface IProps {
   ship: Ship;
 }
 
-const ShipItem: NextPage<IProps> = ({ ship }) => {
+const ShipItem: React.FC<IProps> = ({ ship }) => {
   const { image, name } = ship;
 
   const { addShip } = useStore(state => state);

@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import React from "react";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import { LAUNCHES_PER_PAGE } from "src/utils/variables/variables";
@@ -10,7 +9,7 @@ export interface IProps {
   launchesLength: number;
 }
 
-const Pagination: NextPage<IProps> = ({ current, onChange, launchesLength }) => {
+const Pagination: React.FC<IProps> = ({ current, onChange, launchesLength }) => {
   const maxPages = Math.ceil(launchesLength / LAUNCHES_PER_PAGE - 1);
 
   const previousPage = () => {
